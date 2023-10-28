@@ -1,29 +1,24 @@
-import {useState} from 'react'
+import { Button } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
-function   FormsLogin() {
-
-    const [dataForm, setDataform] = useState({
-        cpf: '',
-        password: '',
-    }) 
-
-    const handleChangeValue = (event: any) => {
-        setDataform((dataForm) => ({
-           ...dataForm, 
-           [event.target.name]: event.target.value,
-        }))
-    }    
-
-    return(
+function Login() {
+    const navigate = useNavigate() 
+    return (
         <>
-        <p id="cpfBarra">CPF</p>
-        <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" onChange={handleChangeValue}/>
+            <p id="cpfBarra">CPF</p>
+            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" />
 
-        <p id='senhaBarra'>Senha</p>
-        <input type="text" name="password" id="password" placeholder="Insira sua senha" onChange={handleChangeValue}/>
+            <p id='senhaBarra'>Senha</p>
+            <input type="text" name="password" id="password" placeholder="Insira sua senha" />
+            <Button
+                variant="contained"
+                color="primary"
+                onClick={() => navigate("/Login")}
+            >
+                Entrar
+            </Button>
         </>
     )
 }
 
-export default FormsLogin
-
+export default Login;

@@ -11,7 +11,7 @@ function Cadastro() {
           type="button"
           color="primary"
           variant="contained"
-          onClick={() => navigate("/")}>
+          onClick={() => navigate("/login")}>
             Finalizar Cadastro
           </Button>  
         </>
