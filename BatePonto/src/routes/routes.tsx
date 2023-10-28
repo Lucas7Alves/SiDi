@@ -1,9 +1,8 @@
-import React from 'react';
-import App from '../App';
 import Login from '../pages/Login';
+import Home from '../pages/Home';
 import { Suspense } from 'react';
 import { CircularProgress } from '@mui/material';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 function AppRoutes() {
   return (
@@ -12,6 +11,10 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/Home" element={<Home />} />
+
+          <Route path="*" element={<Navigate to="/Login"/>}/>
+
         </Routes>
       </Suspense>
     </Router>

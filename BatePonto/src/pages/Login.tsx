@@ -13,7 +13,7 @@ function Login() {
             <Button
                 variant="contained"
                 color="primary"
-                onClick={() => navigate("/Login")}
+                onClick={() => navigate("/Home")}
             >
                 Entrar
             </Button>
