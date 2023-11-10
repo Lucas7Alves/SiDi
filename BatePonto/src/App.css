@@ -8,6 +8,24 @@ p {
   display: inline;
 }
 
+.card {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+main.card{
+  display: flex;
+  padding: 32px;
+}
+
+@media screen and (max-width: 720px) {
+  main.card {
+    flex-direction: column;
+  }
+}
+
 div > button{
   font-size: 1.5em;
   padding: 5%;
