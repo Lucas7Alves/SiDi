@@ -32,6 +32,7 @@ function Login() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        handleLogin(e);
 
         if (formData.password && formData.email && formData.username) {
             navigate("/Home");
@@ -68,7 +69,7 @@ function Login() {
         <>
         <img src={Logo} alt="Logo_SiDi" className="logo"/>
 
-        <form onSubmit={handleLogin} >
+        <form onSubmit={handleSubmit} >
     
         <fieldset>
             <TextField
