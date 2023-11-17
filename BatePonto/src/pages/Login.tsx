@@ -6,7 +6,7 @@ import Logo from "../img/Logo-SiDi.png"
 import imgCad from "../img/devsTrabalhando_.jpg"
 
 interface formData{
-  
+    username: string;
     email: string;
     password: string;
 }
@@ -14,7 +14,8 @@ interface formData{
 function Login() {
     const navigate = useNavigate() 
     const [formData, setFormData] = useState<formData>({
-        email: "",
+        username: "",
+        email: "",  
         password: "",
     })
 
@@ -31,7 +32,7 @@ function Login() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (formData.password && formData.email) {
+        if (formData.password && formData.email && formData.username) {
             navigate("/Home");
           } else {
             alert("Por favor, preencha todos os campos!");
@@ -44,7 +45,20 @@ function Login() {
     return (
         <>
         <img src={Logo} alt="Logo_SiDi" className="logo"/>
-    <form onSubmit={handleSubmit} >
+
+        <form onSubmit={handleSubmit} >
+    
+        <fieldset>
+            <TextField
+            label="Nome"
+            variant="outlined"
+            name="username"
+            value={formData.username}
+            onChange={handleInputChange}
+            
+          />
+        </fieldset>
+
         <fieldset>
             <TextField
             label="Email"
@@ -89,6 +103,17 @@ function Login() {
                 className="btnCadastro"
             >
                 Cadastre-se
+            </Button>
+            </fieldset>
+
+            <fieldset>
+            <Button 
+                variant="outlined"
+                color="secondary"
+                onClick={() => navigate("/EsqueciSenha")}
+                className="btnCadastro"
+            >
+                Esqueceu sua senha?
             </Button>
             </fieldset>
     </form>

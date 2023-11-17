@@ -64,7 +64,7 @@ function Cadastro() {
           />
         </div>
         <div>
-          <Button type="submit" color="primary" variant="contained">
+          <Button type="submit" color="secondary" variant="contained">
             Finalizar Cadastro
           </Button>
         </div>
