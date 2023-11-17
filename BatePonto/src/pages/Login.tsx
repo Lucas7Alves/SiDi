@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../estilizacao/telaLogin.sass";
 import Logo from "../img/Logo-SiDi.png"
 import imgCad from "../img/devsTrabalhando_.jpg"
+import axios from "axios";
 
 interface formData{
     username: string;
@@ -40,13 +41,34 @@ function Login() {
 
         
     };
+
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
+
+    try {
+        const response = await axios.post("http://127.0.0.1:5000/sidi_ponto/v1/login", formData);
+        console.log(response.status)
+        if (response.status === 200) {
+          alert("Login successful!");
+          // Redirecione para a página após o login
+          navigate("/Home");
+
+        } else {
+          alert("Erro no login. Verifique suas credenciais.");
+        }
+      } catch (error) {
+        console.error("Erro ao realizar o login:", error);
+      }
+    };
+    
     
     
     return (
         <>
         <img src={Logo} alt="Logo_SiDi" className="logo"/>
 
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleLogin} >
     
         <fieldset>
             <TextField

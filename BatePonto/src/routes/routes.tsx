@@ -16,7 +16,7 @@ function AppRoutes() {
           <Route path="/Home" element={<Home />} />
           <Route path="/Cadastro" element={<Cadastro />} />
           <Route path="*" element={<Navigate to="/Login"/>}/>
-          <Route path="/EsqueciSenha" element={<Home/>}/>
+          <Route path="/EsqueciSenha" element={<Cadastro/>}/>
 
         </Routes>
       </Suspense>
