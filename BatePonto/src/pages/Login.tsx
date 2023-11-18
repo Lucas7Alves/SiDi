@@ -140,9 +140,7 @@ function Login() {
             </Button>
             </fieldset>
     </form>
-    <div className="dev">
-    <img src={imgCad} alt="Devs_Trabalhando" />    
-    </div>
+    
         </>
     )
 }
