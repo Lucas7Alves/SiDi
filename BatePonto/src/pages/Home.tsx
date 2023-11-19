@@ -1,4 +1,4 @@
-import Cabecalho from "../componets/cabecalho";
+import Cabecalho from "../components/cabecalho";
 import { Button } from "@mui/material";
 import { useState } from "react";
 

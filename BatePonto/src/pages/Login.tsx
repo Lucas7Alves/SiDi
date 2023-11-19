@@ -1,148 +1,126 @@
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../estilizacao/telaLogin.sass";
-import Logo from "../img/Logo-SiDi.png"
-import imgCad from "../img/devsTrabalhando_.jpg"
+import "../scss/telaLogin.sass";
+import Logo from "../img/SiDi_logo.svg";
+import imgCad from "../img/imglogin.png";
 import axios from "axios";
 
-interface formData{
-    username: string;
-    email: string;
-    password: string;
+interface formData {
+  cpf: string;
+  senha: string;
 }
 
 function Login() {
-    const navigate = useNavigate() 
-    const [formData, setFormData] = useState<formData>({
-        username: "",
-        email: "",  
-        password: "",
-    })
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<formData>({
+    cpf: "",
+    senha: "",
+  });
 
-    const handleInputChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        const {name, value} = e.target;
-        setFormData ({
-            ...formData,
-            [name]: value,
-        });
-    };
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        handleLogin(e);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleLogin(e);
 
-        if (formData.password && formData.email && formData.username) {
-            navigate("/Home");
-          } else {
-            alert("Por favor, preencha todos os campos!");
-          }
+    if (formData.senha && formData.cpf) {
+      navigate("/Home");
+    } else {
+      alert("Por favor, preencha todos os campos!");
+    }
+  };
 
-        
-    };
-
-    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
     try {
-        const response = await axios.post("http://127.0.0.1:5000/sidi_ponto/v1/login", formData);
-        console.log(response.status)
-        if (response.status === 200) {
-          alert("Login successful!");
-          // Redirecione para a página após o login
-          navigate("/Home");
-
-        } else {
-          alert("Erro no login. Verifique suas credenciais.");
-        }
-      } catch (error) {
-        console.error("Erro ao realizar o login:", error);
+      const response = await axios.post(
+        "http://127.0.0.1:5000/sidi_ponto/v1/login",
+        formData
+      );
+      console.log(response.status);
+      if (response.status === 200) {
+        alert("Login successful!");
+        // Redirecione para a página após o login
+        navigate("/Home");
+      } else {
+        alert("Erro no login. Verifique suas credenciais.");
       }
-    };
-    
-    
-    
-    return (
-        <>
-        <img src={Logo} alt="Logo_SiDi" className="logo"/>
+    } catch (error) {
+      console.error("Erro ao realizar o login:", error);
+    }
+  };
 
-        <form onSubmit={handleSubmit} >
-    
-        <fieldset>
+  return (
+    <div className="Logintela">
+      <div className="Logintela__forms-container">
+        <img src={Logo} alt="Logo_SiDi" className="logo" />
+
+        <form className="Logintela__forms" onSubmit={handleSubmit}>
+          <fieldset className="Forms_field">
             <TextField
-            label="Nome"
-            variant="outlined"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-            
-          />
-        </fieldset>
+              label="CPF"
+              type="cpf"
+              variant="outlined"
+              name="cpf"
+              value={formData.cpf}
+              onChange={handleInputChange}
+            />
+          </fieldset>
 
-        <fieldset>
+          <fieldset className="Forms_field">
             <TextField
-            label="Email"
-            type="email"
-            variant="outlined"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            
-          />
-        </fieldset>
+              label="senha"
+              type="password"
+              variant="outlined"
+              name="senha"
+              value={formData.senha}
+              onChange={handleInputChange}
+            />
+          </fieldset>
 
-        <fieldset>
-            <TextField
-            label="Password"
-            type="password"
-            variant="outlined"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-
-          />
-        </fieldset>
-
-        <fieldset>
+          <fieldset className="Forms_field btnEntrar">
             <Button
-                type="submit"
-                variant="contained"
-                color="secondary"
-                className="btnEntrar"
-  
+              style={{ color: 'white' }}
+              type="submit"
+              className="btnEntrar"
             >
-                Entrar
+              Entrar
             </Button>
-            </fieldset>    
-                 
-            <fieldset>
-            <Button 
-                variant="contained"
-                color="secondary"
-                onClick={() => navigate("/Cadastro")}
-                className="btnCadastro"
-            >
-                Cadastre-se
-            </Button>
-            </fieldset>
+          </fieldset>
 
-            <fieldset>
-            <Button 
-                variant="outlined"
-                color="secondary"
-                onClick={() => navigate("/EsqueciSenha")}
-                className="btnCadastro"
+          <fieldset className="Forms_field btnCadastro">
+            <button
+              onClick={() => navigate("/Cadastro")}
+              className="btnCadastro"
             >
-                Esqueceu sua senha?
-            </Button>
-            </fieldset>
-    </form>
-    
-        </>
-    )
+              Cadastre-se
+            </button>
+          </fieldset>
+
+          <fieldset className="Forms_field btnCadastro">
+            <button
+              onClick={() => navigate("/EsqueciSenha")}
+              className="btnCadastro"
+            >
+              Esqueceu sua senha?
+            </button>
+          </fieldset>
+        </form>
+      </div>
+
+      <img src={imgCad} alt="" className="Logintela__img"/>
+    </div>
+  );
 }
 
 export default Login;

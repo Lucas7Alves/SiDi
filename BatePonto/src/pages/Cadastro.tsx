@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
-import Cabecalho from "../componets/cabecalho";
+import Cabecalho from "../components/cabecalho";
 interface FormData {
 
   password: string;
@@ -64,7 +64,7 @@ function Cadastro() {
           />
         </div>
         <div>
-          <Button type="submit" color="secondary" variant="contained">
+          <Button type="submit" color="primary" variant="contained">
             Finalizar Cadastro
           </Button>
         </div>
