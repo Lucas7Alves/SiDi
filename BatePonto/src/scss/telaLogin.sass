@@ -3,33 +3,58 @@
     padding: 0
 
 .logo
-    height: 40%
-    width: 40%
+    height: 15rem
+    width: 15rem
 
 .Logintela
     display: flex
-    justify-content: space-between 
+    flex-direction: center
+    justify-content: center
+    align-items: center 
     height: 100vh
-
-.Logintela__img
-    height: 100vh
-    flex:1
+    background-image: url('../img/fundologinTela.svg')
+    background-repeat: no-repeat
+    background-size: 100%
 
 .Logintela__forms-container
     display: flex
-    flex: 1
+    flex-direction: column
+    align-items: center
+    background-color: white
+    height: 50rem
+    width: 50rem
+    border-radius: 20px
+
+.Logintela__forms
+    display: flex
     flex-direction: column
     justify-content: center
+    width: 60%
+    height: 60%
+
+.Logintela__titulo-container
+    display: flex
+    flex-direction: column
     align-items: center
+    position: relative
+
+.Logintela_titulo
+    font-size: 1rem
+    position: absolute
+    top: 11rem
+    color: #46177D
 
 .Forms_field
-    margin-bottom: 15px
+    margin-bottom: 40px
     display: flex
     flex-direction: column
     border-radius: 100px
 
 .btnEntrar
     background-color: #46177D
+    padding: 17px
+    margin-left: 6rem
+    margin-right: 6rem
 
 .btnCadastro
     margin: 0
@@ -39,3 +64,8 @@
     font-size: 100%
     vertical-align: baseline
     background: transparent
+    font-size: 1.2rem
+    color: #46177D
+    text-decoration: underline
+    margin-bottom: 1rem
+

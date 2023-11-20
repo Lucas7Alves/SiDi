@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../scss/telaLogin.sass";
 import Logo from "../img/SiDi_logo.svg";
-import imgCad from "../img/imglogin.png";
 import axios from "axios";
 
 interface formData {
@@ -63,7 +62,10 @@ function Login() {
   return (
     <div className="Logintela">
       <div className="Logintela__forms-container">
-        <img src={Logo} alt="Logo_SiDi" className="logo" />
+        <div className="Logintela__titulo-container">
+          <img src={Logo} alt="Logo_SiDi" className="logo" />
+          <h1 className="Logintela_titulo">| login |</h1>
+        </div>
 
         <form className="Logintela__forms" onSubmit={handleSubmit}>
           <fieldset className="Forms_field">
@@ -98,14 +100,7 @@ function Login() {
             </Button>
           </fieldset>
 
-          <fieldset className="Forms_field btnCadastro">
-            <button
-              onClick={() => navigate("/Cadastro")}
-              className="btnCadastro"
-            >
-              Cadastre-se
-            </button>
-          </fieldset>
+          
 
           <fieldset className="Forms_field btnCadastro">
             <button
@@ -115,10 +110,17 @@ function Login() {
               Esqueceu sua senha?
             </button>
           </fieldset>
+
+          <fieldset className="Forms_field btnCadastro">
+            <button
+              onClick={() => navigate("/Cadastro")}
+              className="btnCadastro"
+            >
+              Cadastre-se
+            </button>
+          </fieldset>
         </form>
       </div>
-
-      <img src={imgCad} alt="" className="Logintela__img"/>
     </div>
   );
 }
