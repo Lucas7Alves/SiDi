@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import { CircularProgress } from '@mui/material';
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Cadastro from '../pages/Cadastro';
+import RedefinirSenha from "../pages/RedefinirSenha"
 
 function AppRoutes() {
   return (
@@ -17,7 +18,8 @@ function AppRoutes() {
           <Route path="/Cadastro" element={<Cadastro />} />
           <Route path="*" element={<Navigate to="/Login"/>}/>
           <Route path="/EsqueciSenha" element={<EsqueciSenha/>}/>
-
+          <Route path="/RedefinirSenha" element={<RedefinirSenha/>}/>
+          
         </Routes>
       </Suspense>
     </Router>

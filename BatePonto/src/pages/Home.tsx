@@ -13,7 +13,7 @@ function Home() {
     return(
         <div>
             <Cabecalho/>
-          <p>Bem-Vinda de volta, <strong>Maria Julia!</strong> Sentimos sua falta.</p>  
+          <p>Bem-Vinda de volta, <strong>{}</strong> Sentimos sua falta.</p>  
            <Button
            type="reset"
            color="secondary"

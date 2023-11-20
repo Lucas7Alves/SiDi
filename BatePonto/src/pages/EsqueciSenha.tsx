@@ -28,7 +28,7 @@ function EsqueciSenha() {
         e.preventDefault();
 
         if (formData.email) {
-            navigate("/Home");
+            navigate("/RedefinirSenha");
           } else {
             alert("Por favor, preencha todos os campos!");
           }
