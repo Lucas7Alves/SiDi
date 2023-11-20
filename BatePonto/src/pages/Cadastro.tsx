@@ -2,17 +2,26 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 import Cabecalho from "../components/cabecalho";
+import  "../scss/Cadastro.sass";
 interface FormData {
 
-  password: string;
+  nome: string
+  senha: string;
+  cpf: string;
+  repetirSenha: string;
   email: string;
+  numero: string;
 }
 
 function Cadastro() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({
-    password: "",
-    email: "",
+    senha: "",
+    cpf: "",
+    nome: "",
+    repetirSenha:"",
+    email:"",
+    numero:"",
   });
  
 
@@ -29,7 +38,7 @@ function Cadastro() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    if (formData.password && formData.email) {
+    if (formData.senha && formData.cpf && formData.nome && formData.repetirSenha && formData.email && formData.numero) {
       navigate("/login");
     } else {
       alert("Por favor, preencha todos os campos!");
@@ -37,15 +46,36 @@ function Cadastro() {
   };
 
   return (
-    <>
+    <div>
       <Cabecalho/>
-      <h1>Tela de cadastro!!</h1>
+      <h1 className="cadastro_C">Cadastro</h1>
       <form onSubmit={handleSubmit}>
+      <div>
+          <TextField
+            label="Nome Completo"
+            variant="outlined"       
+            name="nome"
+            value={formData.nome}
+            onChange={handleInputChange}
+
+          />
+       
+        </div>
+        <div>
+          <TextField
+            label="CPF"
+            variant="outlined"
+            type="cpf"
+            name="cpf"
+            value={formData.cpf}
+            onChange={handleInputChange}
+
+          />
+        </div>
         <div>
           <TextField
             label="Email"
-            variant="outlined"
-            type="email"
+            variant="outlined"           
             name="email"
             value={formData.email}
             onChange={handleInputChange}
@@ -54,11 +84,35 @@ function Cadastro() {
         </div>
         <div>
           <TextField
-            label="Password"
+            label="Senha"
             variant="outlined"
             type="password"
-            name="password"
-            value={formData.password}
+            name="senha"
+            value={formData.senha}
+            onChange={handleInputChange}
+
+          />
+       
+        </div>
+       
+        <div>
+          <TextField
+            label="Repetir Senha"
+            variant="outlined"         
+            name="repetirSenha"
+            type="password"
+            value={formData.repetirSenha}
+            onChange={handleInputChange}
+
+          />
+       
+        </div>
+        <div>
+          <TextField
+            label="Número do Celular"
+            variant="outlined"          
+            name="numero"
+            value={formData.numero}
             onChange={handleInputChange}
 
           />
@@ -69,7 +123,7 @@ function Cadastro() {
           </Button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 
