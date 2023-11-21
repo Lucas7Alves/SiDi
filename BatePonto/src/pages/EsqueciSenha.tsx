@@ -1,11 +1,12 @@
-import Logo from "../img/Logo-SiDi.png"
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../scss/EsqueciSenha.sass";
+import LogoSenha from "../img/Logo-SiDi.png";
 
-interface formData{
-    email: string;
-}
+    interface formData {
+        email: string;
+    }
 
 function EsqueciSenha() {
 
@@ -36,33 +37,39 @@ function EsqueciSenha() {
 
     return(
         <>
-        <img src={Logo} alt="Logo_SiDi" className="logo"/>
+
+        <div>
+            <img src={LogoSenha} alt="logo da sidi" className="logoSenha"/>
+            
+            <p className="fraseSenha">Insira o seu email e enviaremos um link para você voltar a acessar a sua conta.</p>
 
     <form onSubmit={handleSubmit} >
-        <fieldset>
-            <TextField
-            label="Digite seu email"
-            type="email"
-            variant="outlined"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-        </fieldset>
+            <fieldset>
+                <TextField
+                label="Digite seu email"
+                type="email"
+                variant="outlined"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                />
+            </fieldset>
 
-        
+        <p className="subTexto">Você receberá um e-mail com as instruções para criar uma nova senha para este usuário.</p>
 
-        <fieldset>
+            <fieldset>
             <Button
                 type="submit"
                 variant="contained"
                 color="secondary"
                 className="btnEntrar"
-            >
-                Mudar senha
-            </Button>
+            >ENVIAR</Button>
             </fieldset>    
     </form>
+
+        <div className="fundoSenha"/>
+        </div>
+
         </>
     )
 }
