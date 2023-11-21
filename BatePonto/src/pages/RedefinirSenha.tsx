@@ -38,6 +38,7 @@ function RedefinirSenha() {
 
   return (
 
+    <div className="fundoSenha">
     <div>
       <img src={LogoSenha} alt="logo da sidi" className="logoSenha"/>
 
@@ -72,7 +73,8 @@ function RedefinirSenha() {
         variant="contained"
         color="secondary">REDEFINIR</Button>
       </form>
-      <div className="fundoSenha"/>
+      
+    </div>
     </div>
   );
 }

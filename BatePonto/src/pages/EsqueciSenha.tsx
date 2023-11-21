@@ -37,7 +37,7 @@ function EsqueciSenha() {
 
     return(
         <>
-
+        <div className="fundoSenha">
         <div>
             <img src={LogoSenha} alt="logo da sidi" className="logoSenha"/>
             
@@ -67,9 +67,9 @@ function EsqueciSenha() {
             </fieldset>    
     </form>
 
-        <div className="fundoSenha"/>
+        
         </div>
-
+        </div>
         </>
     )
 }
