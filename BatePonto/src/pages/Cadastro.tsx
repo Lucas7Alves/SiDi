@@ -8,9 +8,7 @@ interface FormData {
   nome: string
   senha: string;
   cpf: string;
-  repetirSenha: string;
   email: string;
-  numero: string;
 }
 
 function Cadastro() {
@@ -19,9 +17,7 @@ function Cadastro() {
     senha: "",
     cpf: "",
     nome: "",
-    repetirSenha:"",
     email:"",
-    numero:"",
   });
  
 
@@ -38,7 +34,7 @@ function Cadastro() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    if (formData.senha && formData.cpf && formData.nome && formData.repetirSenha && formData.email && formData.numero) {
+    if (formData.senha && formData.cpf && formData.nome && formData.email) {
       navigate("/login");
     } else {
       alert("Por favor, preencha todos os campos!");
@@ -95,28 +91,6 @@ function Cadastro() {
        
         </div>
        
-        <div>
-          <TextField
-            label="Repetir Senha"
-            variant="outlined"         
-            name="repetirSenha"
-            type="password"
-            value={formData.repetirSenha}
-            onChange={handleInputChange}
-
-          />
-       
-        </div>
-        <div>
-          <TextField
-            label="Número do Celular"
-            variant="outlined"          
-            name="numero"
-            value={formData.numero}
-            onChange={handleInputChange}
-
-          />
-        </div>
         <div>
           <Button type="submit" color="primary" variant="contained">
             Finalizar Cadastro

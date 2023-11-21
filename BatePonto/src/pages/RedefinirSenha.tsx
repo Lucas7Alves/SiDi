@@ -6,12 +6,14 @@ import LogoSenha from "../img/Logo-SiDi.png";
 
 interface formData {
   novaSenha: string;
+  repetirSenha: string;
 }
 
 function RedefinirSenha() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<formData>({
     novaSenha: "",
+    repetirSenha: "",
   });
 
   const handleInputChange = (
@@ -27,7 +29,7 @@ function RedefinirSenha() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    if (formData.novaSenha) {
+    if (formData.novaSenha && formData.repetirSenha) {
       navigate("/login");
     } else {
       alert("Por favor, preencha todos os campos!");
@@ -48,6 +50,17 @@ function RedefinirSenha() {
             variant="outlined"
             name="novaSenha"
             value={formData.novaSenha}
+            onChange={handleInputChange}
+          />
+        </fieldset>
+
+        <fieldset>
+          <TextField
+            label="Repita sua nova senha"
+            type="password"
+            variant="outlined"
+            name="repetirSenha"
+            value={formData.repetirSenha}
             onChange={handleInputChange}
           />
         </fieldset>
