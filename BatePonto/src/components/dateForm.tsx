@@ -14,14 +14,9 @@ export default function DateForm() {
       <DemoContainer
         components={[
           'DatePicker',
-          'MobileDatePicker',
-          'DesktopDatePicker',
-          'StaticDatePicker',
         ]}
       >
-        <DemoItem label="Desktop variant">
-          <DesktopDatePicker defaultValue={dayjs('2022-04-17')} />
-        </DemoItem>
+          <DesktopDatePicker defaultValue={dayjs('2023-11-24')} />
       </DemoContainer>
     </LocalizationProvider>
   );
