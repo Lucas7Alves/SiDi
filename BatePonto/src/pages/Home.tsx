@@ -1,6 +1,6 @@
-import Cabecalho from "../components/cabecalho";
 import { Button } from "@mui/material";
 import { useState } from "react";
+import LogoCad from "../img/Logo-SiDi.png";
 
 function Home() {
   const [message, setMessage] = useState("");
@@ -10,7 +10,7 @@ function Home() {
   };
   return (
     <div>
-      <Cabecalho />
+      <img src={LogoCad}/>
       <p>
         Bem-Vinda de volta, <strong>Maria Julia!</strong> Sentimos sua falta.
       </p>

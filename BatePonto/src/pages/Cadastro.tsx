@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
-import Cabecalho from "../components/cabecalho";
-import  "../scss/Cadastro.sass";
-interface FormData {
+import LogoCad from "../img/Logo-SiDi.png";
+import "../scss/Cadastro.sass";
 
-  nome: string
-  senha: string;
+interface formData {
+  nome: string;
+  senhaCad: string;
   cpf: string;
   email: string;
 }
 
 function Cadastro() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState<FormData>({
-    senha: "",
+  const [formData, setFormData] = useState<formData>({
+    senhaCad: "",
     cpf: "",
     nome: "",
-    email:"",
+    email: "",
   });
- 
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -33,8 +32,8 @@ function Cadastro() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
-    if (formData.senha && formData.cpf && formData.nome && formData.email) {
+
+    if (formData.senhaCad && formData.cpf && formData.nome && formData.email) {
       navigate("/login");
     } else {
       alert("Por favor, preencha todos os campos!");
@@ -42,61 +41,62 @@ function Cadastro() {
   };
 
   return (
-    <div>
-      <Cabecalho/>
-      <h1 className="cadastro_C">Cadastro</h1>
-      <form onSubmit={handleSubmit}>
-      <div>
-          <TextField
-            label="Nome Completo"
-            variant="outlined"       
-            name="nome"
-            value={formData.nome}
-            onChange={handleInputChange}
+    <div className="fundoCad">
+      <div className="Cad_forms-container">
+        <div className="Cad_titulo-container">
+          <img src={LogoCad} alt="Logo sidi" className="logoCad" />
+          <h1 className="cadastro_C">|Cadastro|</h1>
+        </div>
+        <form className="Cad_forms" onSubmit={handleSubmit}>
+          <div className="Forms_cadField">
+            <TextField
+              label="Nome Completo"
+              variant="outlined"
+              name="nome"
+              value={formData.nome}
+              onChange={handleInputChange}
+            />
+          </div>
 
-          />
-       
-        </div>
-        <div>
-          <TextField
-            label="CPF"
-            variant="outlined"
-            type="cpf"
-            name="cpf"
-            value={formData.cpf}
-            onChange={handleInputChange}
+          <div className="Forms_cadField">
+            <TextField
+              label="CPF"
+              variant="outlined"
+              type="cpf"
+              name="cpf"
+              value={formData.cpf}
+              onChange={handleInputChange}
+            />
+          </div>
 
-          />
-        </div>
-        <div>
-          <TextField
-            label="Email"
-            variant="outlined"           
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
+          <div className="Forms_cadField">
+            <TextField
+              label="Email"
+              variant="outlined"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+          </div>
 
-          />
-        </div>
-        <div>
-          <TextField
-            label="Senha"
-            variant="outlined"
-            type="password"
-            name="senha"
-            value={formData.senha}
-            onChange={handleInputChange}
+          <div className="Forms_cadField">
+            <TextField
+              label="Senha"
+              variant="outlined"
+              type="password"
+              name="senhaCad"
+              value={formData.senhaCad}
+              onChange={handleInputChange}
+            />
+          </div>
 
-          />
-       
-        </div>
-       
-        <div>
-          <Button type="submit" color="primary" variant="contained">
-            Finalizar Cadastro
-          </Button>
-        </div>
-      </form>
+          <div className="Forms_cadFieldbtnCad">
+            <Button style={{ color: "white" }} type="submit" className="btnCad">
+              Finalizar Cadastro
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
