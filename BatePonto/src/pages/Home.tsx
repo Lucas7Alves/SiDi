@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { useState } from "react";
 import LogoCad from "../img/Logo-SiDi.png";
+import DateForm from "../components/dateForm"
 
 function Home() {
   const [message, setMessage] = useState("");
@@ -14,6 +15,9 @@ function Home() {
       <p>
         Bem-Vinda de volta, <strong>Maria Julia!</strong> Sentimos sua falta.
       </p>
+
+      <DateForm/>
+
       <Button
         type="reset"
         color="secondary"
