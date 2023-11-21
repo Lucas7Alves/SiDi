@@ -1,6 +1,8 @@
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../scss/RedefinirSenha.sass";
+import LogoSenha from "../img/Logo-SiDi.png";
 
 interface formData {
   novaSenha: string;
@@ -33,10 +35,11 @@ function RedefinirSenha() {
   };
 
   return (
-    <div>
-      <h1>Criar nova senha</h1>
 
-      <p>Utilize o formulário a seguir para redefinir sua senha.</p>
+    <div>
+      <img src={LogoSenha} alt="logo da sidi" className="logoSenha"/>
+
+      <p className="fraseSenha">Utilize o formulário a seguir para redefinir sua senha.</p>
       <form onSubmit={handleSubmit}>
         <fieldset>
           <TextField
@@ -49,11 +52,14 @@ function RedefinirSenha() {
           />
         </fieldset>
 
+        
+
         <Button className="btnRedefinirSenha"
         type="submit"
         variant="contained"
-        color="secondary">Mudar Senha</Button>
+        color="secondary">REDEFINIR</Button>
       </form>
+      <div className="fundoSenha"/>
     </div>
   );
 }
