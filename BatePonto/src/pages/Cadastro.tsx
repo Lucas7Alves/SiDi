@@ -104,7 +104,7 @@ function Cadastro() {
             />
           </div>
             <button type="submit" className="btnCad">
-              CADASTRAR-SE
+              <strong>Cadastrar-se</strong>
             </button>   
     
         </form>

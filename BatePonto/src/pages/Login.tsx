@@ -94,7 +94,7 @@ function Login() {
               type="submit"
               className="btnEntrar"
             >
-              Entrar
+              <strong>Entrar</strong>
             </button>
 
           <fieldset className="Forms_field btnCadastro">
