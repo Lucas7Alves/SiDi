@@ -4,8 +4,19 @@ import LogoCad from "../img/SiDi_logo.svg";
 import DateForm from "../components/dateForm"
 import "../scss/home.sass";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { useNavigate } from "react-router-dom";
+import TimeBar from "../components/TimeBar";
+import NavBar from "../components/NavBar";
+
 
 function Home() {
+
+  const navigate = useNavigate();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    navigate("/login");
+  };
+
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -21,9 +32,12 @@ function Home() {
   const msgCorrigida = () => {
     setMsgCorrigida("Ponto Corrigido!");
   };
+
+
   return (
     
     <div>
+      <NavBar/>
       <img src={LogoCad} className="logoHome"/>
       <p>
         Bem-Vinda de volta, <strong>{ /*add uma variavel com o nome*/ }</strong> Sentimos sua falta.
@@ -33,6 +47,7 @@ function Home() {
       
       <DateForm/>
 
+      <TimeBar/>
       <Button
         type="reset"
         color="secondary"
