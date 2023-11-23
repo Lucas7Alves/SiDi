@@ -2,11 +2,8 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import LogoCad from "../img/SiDi_logo.svg";
 import DateForm from "../components/dateForm"
-<<<<<<< HEAD
 import "../scss/home.sass";
-=======
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
->>>>>>> 700c1e8c21063f9999e1426eeebeb7934d7f02ee
 
 function Home() {
 
@@ -27,12 +24,7 @@ function Home() {
   return (
     
     <div>
-<<<<<<< HEAD
       <img src={LogoCad} className="logoHome"/>
-=======
-      
-      <img src={LogoCad}/>
->>>>>>> 700c1e8c21063f9999e1426eeebeb7934d7f02ee
       <p>
         Bem-Vinda de volta, <strong>{ /*add uma variavel com o nome*/ }</strong> Sentimos sua falta.
       </p>
