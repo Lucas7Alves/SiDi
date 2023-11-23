@@ -64,7 +64,7 @@ function Login() {
       <div className="Logintela__forms-container">
         <div className="Logintela__titulo-container">
           <img src={Logo} alt="Logo_SiDi" className="logo" />
-          <h1 className="Logintela_titulo">| login |</h1>
+          <h1 className="Logintela_titulo">| Login |</h1>
         </div>
 
         <form className="Logintela__forms" onSubmit={handleSubmit}>
@@ -81,7 +81,7 @@ function Login() {
 
           <fieldset className="Forms_field">
             <TextField
-              label="senha"
+              label="Senha"
               type="password"
               variant="outlined"
               name="senha"
