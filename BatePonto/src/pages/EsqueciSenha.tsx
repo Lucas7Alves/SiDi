@@ -27,7 +27,7 @@ function EsqueciSenha() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+            
         if (formData.email) {
             navigate("/RedefinirSenha");
           } else {

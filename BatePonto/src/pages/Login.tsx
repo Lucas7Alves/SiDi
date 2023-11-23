@@ -38,6 +38,8 @@ function Login() {
     }
   };
 
+
+  
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -46,10 +48,8 @@ function Login() {
         "http://127.0.0.1:5000/sidi_ponto/v1/login",
         formData
       );
-      console.log(response.status);
       if (response.status === 200) {
-        alert("Login successful!");
-        // Redirecione para a página após o login
+        alert("Login efetuado!");
         navigate("/Home");
       } else {
         alert("Erro no login. Verifique suas credenciais.");
