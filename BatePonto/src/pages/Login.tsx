@@ -32,12 +32,18 @@ function Login() {
     handleLogin(e);
 
     if (formData.senha && formData.cpf) {
-      navigate("/Home");
+      if (typeof formData.cpf === "number") {
+        navigate("/Home");
+      } else {
+        alert("Digite apenas números no campo do CPF!");  
+      }
     } else {
       alert("Por favor, preencha todos os campos!");
     }
   };
 
+
+  
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -46,10 +52,8 @@ function Login() {
         "http://127.0.0.1:5000/sidi_ponto/v1/login",
         formData
       );
-      console.log(response.status);
       if (response.status === 200) {
-        alert("Login successful!");
-        // Redirecione para a página após o login
+        alert("Login efetuado!");
         navigate("/Home");
       } else {
         alert("Erro no login. Verifique suas credenciais.");

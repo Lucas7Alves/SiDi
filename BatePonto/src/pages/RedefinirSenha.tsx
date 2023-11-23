@@ -30,7 +30,11 @@ function RedefinirSenha() {
     e.preventDefault();
     
     if (formData.novaSenha && formData.repetirSenha) {
-      navigate("/login");
+      if (formData.novaSenha == formData.repetirSenha) {
+        navigate("/login");
+      } else {
+        alert("As senhas devem ser iguais");
+      }
     } else {
       alert("Por favor, preencha todos os campos!");
     }

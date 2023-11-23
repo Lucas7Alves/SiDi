@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 import LogoCad from "../img/Logo-SiDi.png";
 import "../scss/Cadastro.sass";
+import axios from "axios";
+
 
 interface formData {
   nome: string;
@@ -34,11 +36,33 @@ function Cadastro() {
     e.preventDefault();
 
     if (formData.senhaCad && formData.cpf && formData.nome && formData.email) {
-      navigate("/login");
+      handleCadastro(e)
     } else {
       alert("Por favor, preencha todos os campos!");
     }
   };
+
+
+
+  const handleCadastro = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:5000/sidi_ponto/v1/cadastro",
+        formData
+      );
+      if (response.status === 200) {
+        alert("Cadastrado com sucesso!");
+        navigate("/Login");
+      } else {
+        alert("Erro no Cadastro. Verifique seus dados.");
+      }
+    } catch (error) {
+      console.error("Erro ao realizar o cadastro:", error);
+    }
+};
+
 
   return (
     <div className="fundoCad">
