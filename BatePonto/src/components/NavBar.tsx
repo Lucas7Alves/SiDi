@@ -43,22 +43,22 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{background: 'white'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           
           <Typography
-            variant="h5"
+            variant="h3"
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'Sans-serif',
+              fontFamily: 'Krona One', 
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'purple',
               textDecoration: 'none',
             }}
           >
@@ -126,10 +126,10 @@ function NavBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
+              <Button style={{ fontSize: 20, width: 130 }}
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }} 
+                sx={{ my: 3, color: 'white', display: 'block' }} 
               >                  {/* Logout */}
                 <Link style={{textDecoration: "none"}} to={`/${page}`}>
                     {page}
@@ -141,7 +141,7 @@ function NavBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Logout">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Julia" src="/static/images/avatar/2.jpg" /> {/* FOTO */}
+                <Avatar alt="Bruno" src="/static/images/avatar/2.jpg" /> {/* FOTO */}
               </IconButton>
             </Tooltip>
             <Menu

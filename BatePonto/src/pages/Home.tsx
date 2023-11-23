@@ -14,25 +14,22 @@ import FundoInicial from "../img/fundologinTela.svg";
 function Home() {
 
   const navigate = useNavigate();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    navigate("/login");
-  };
+ 
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyCQI2HtvKCfvPZ8GXGI05UQzLM4ykDrU-U"
   })
   
-  const [message, setMessage] = useState("");
-  const [messageCorrigida, setMsgCorrigida] = useState("");
+  const [message] = useState("");
+  const [messageCorrigida] = useState("");
 
   const mostrarMessage = () => {
-    setMessage("Ponto Batido!");
+    alert("Ponto Batido!");
   };
 
   const msgCorrigida = () => {
-    setMsgCorrigida("Ponto Corrigido!");
+    alert("Ponto Corrigido!");
   };
 
   return (
@@ -47,7 +44,7 @@ function Home() {
 <p className="wellcomeFrase">Bem-vinda de volta, Maria!</p>
 
 <div className="textosCima">
-  <p>Entrada:</p>
+  <p className="">Entrada:</p>
   <p>Saída:</p>
   <p>Corrigir ponto:</p>
 </div>
@@ -66,7 +63,7 @@ variant="contained"
 size="large"
 onClick={mostrarMessage}
 >Bater Ponto</Button>
-{<p>{message}</p>}
+
 </div>  
 
 
