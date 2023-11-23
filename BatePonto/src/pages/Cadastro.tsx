@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
-import LogoCad from "../img/Logo-SiDi.png";
+import LogoCad from "../img/SiDi_logo.svg";
 import "../scss/Cadastro.sass";
 import axios from "axios";
 
@@ -68,7 +68,7 @@ function Cadastro() {
       <div className="Cad_forms-container">
         <div className="Cad_titulo-container">
           <img src={LogoCad} alt="Logo sidi" className="logoCad" />
-          <h1 className="cadastro_C">|Cadastro|</h1>
+          <h1 className="cadastro_C">| Cadastro |</h1>
         </div>
         <form className="Cad_forms" onSubmit={handleSubmit}>
           <div className="Forms_cadField">
@@ -104,7 +104,7 @@ function Cadastro() {
             />
           </div>
             <button type="submit" className="btnCad">
-              CADASTRAR-SE
+              <strong>Cadastrar-se</strong>
             </button>   
     
         </form>
