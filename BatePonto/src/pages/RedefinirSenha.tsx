@@ -56,7 +56,7 @@ function RedefinirSenha() {
           />
         </fieldset>
 
-        <fieldset className="formSenha2">
+        <fieldset className="formSenha">
           <TextField style={{width: 500}}
             label="Repita sua nova senha"
             type="password"
@@ -67,7 +67,6 @@ function RedefinirSenha() {
           />
         </fieldset>
 
-      <p></p>
         
         <fieldset className="btnEnviarSenha">
         <Button style={{width: 150, height: 50, borderRadius: 50}}

@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../scss/telaLogin.sass";
@@ -6,14 +6,14 @@ import Logo from "../img/SiDi_logo.svg";
 import axios from "axios";
 
 interface formData {
-  cpf: string;
+  email: string;
   senha: string;
 }
 
 function Login() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<formData>({
-    cpf: "",
+    email: "",
     senha: "",
   });
 
@@ -31,7 +31,7 @@ function Login() {
     e.preventDefault();
     handleLogin(e);
 
-    if (formData.senha && formData.cpf) {
+    if (formData.senha && formData.email) {
       navigate("/Home");
     } else {
       alert("Por favor, preencha todos os campos!");
@@ -70,11 +70,11 @@ function Login() {
         <form className="Logintela__forms" onSubmit={handleSubmit}>
           <fieldset className="Forms_field">
             <TextField
-              label="CPF"
-              type="cpf"
+              label="Email"
+              type="email"
               variant="outlined"
-              name="cpf"
-              value={formData.cpf}
+              name="email"
+              value={formData.email}
               onChange={handleInputChange}
             />
           </fieldset>
@@ -90,17 +90,12 @@ function Login() {
             />
           </fieldset>
 
-          <fieldset className="Forms_field btnEntrar">
-            <Button
-              style={{ color: 'white' }}
+          <button
               type="submit"
               className="btnEntrar"
             >
               Entrar
-            </Button>
-          </fieldset>
-
-          
+            </button>
 
           <fieldset className="Forms_field btnCadastro">
             <button

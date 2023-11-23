@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import LogoCad from "../img/Logo-SiDi.png";
 import "../scss/Cadastro.sass";
 
 interface formData {
   nome: string;
   senhaCad: string;
-  cpf: string;
   email: string;
 }
 
@@ -15,9 +14,8 @@ function Cadastro() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<formData>({
     senhaCad: "",
-    cpf: "",
-    nome: "",
     email: "",
+    nome: "",
   });
 
   const handleInputChange = (
@@ -33,7 +31,7 @@ function Cadastro() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (formData.senhaCad && formData.cpf && formData.nome && formData.email) {
+    if (formData.senhaCad && formData.email && formData.nome) {
       navigate("/login");
     } else {
       alert("Por favor, preencha todos os campos!");
@@ -58,16 +56,7 @@ function Cadastro() {
             />
           </div>
 
-          <div className="Forms_cadField">
-            <TextField
-              label="CPF"
-              variant="outlined"
-              type="cpf"
-              name="cpf"
-              value={formData.cpf}
-              onChange={handleInputChange}
-            />
-          </div>
+          
 
           <div className="Forms_cadField">
             <TextField
@@ -89,12 +78,10 @@ function Cadastro() {
               onChange={handleInputChange}
             />
           </div>
-
-          <div className="Forms_cadFieldbtnCad">
-            <Button style={{ color: "white" }} type="submit" className="btnCad">
-              Finalizar Cadastro
-            </Button>
-          </div>
+            <button type="submit" className="btnCad">
+              CADASTRAR-SE
+            </button>   
+    
         </form>
       </div>
     </div>
