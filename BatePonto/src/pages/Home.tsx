@@ -2,9 +2,18 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import LogoCad from "../img/SiDi_logo.svg";
 import DateForm from "../components/dateForm"
+<<<<<<< HEAD
 import "../scss/home.sass";
+=======
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+>>>>>>> 700c1e8c21063f9999e1426eeebeb7934d7f02ee
 
 function Home() {
+
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: "AIzaSyCQI2HtvKCfvPZ8GXGI05UQzLM4ykDrU-U"
+  })
   const [message, setMessage] = useState("");
   const [messageCorrigida, setMsgCorrigida] = useState("");
 
@@ -15,11 +24,15 @@ function Home() {
   const msgCorrigida = () => {
     setMsgCorrigida("Ponto Corrigido!");
   };
-
-
   return (
+    
     <div>
+<<<<<<< HEAD
       <img src={LogoCad} className="logoHome"/>
+=======
+      
+      <img src={LogoCad}/>
+>>>>>>> 700c1e8c21063f9999e1426eeebeb7934d7f02ee
       <p>
         Bem-Vinda de volta, <strong>{ /*add uma variavel com o nome*/ }</strong> Sentimos sua falta.
       </p>
@@ -54,8 +67,24 @@ function Home() {
       </Button>
       {<p>{messageCorrigida}</p>}
 
+      <div className="map">{isLoaded ? (
+      <GoogleMap
+        mapContainerStyle={{width: 700, height: 500}}
+        center={{
+          lat: -8.087133654385111, 
+          lng: -34.89179401238508
+        }}
+        zoom={15}
+      >
+        
+      </GoogleMap>
+  ) : <></>
+  }</div>
     </div>
+
+
   );
 }
+
 
 export default Home;
