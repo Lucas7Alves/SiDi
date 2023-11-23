@@ -44,8 +44,9 @@ function EsqueciSenha() {
             <p className="fraseSenha">Insira o seu email e enviaremos um link para você voltar a acessar a sua conta.</p>
 
     <form onSubmit={handleSubmit} >
-            <fieldset>
-                <TextField
+            <fieldset className="emailCont" >
+            
+                <TextField style={{width: 500}} 
                 label="Digite seu email"
                 type="email"
                 variant="outlined"
@@ -57,8 +58,8 @@ function EsqueciSenha() {
 
         <p className="subTexto">Você receberá um e-mail com as instruções para criar uma nova senha para este usuário.</p>
 
-            <fieldset>
-            <Button
+            <fieldset className="btnEsquecisenha">
+            <Button style={{width: 150, height: 50, borderRadius: 50}} 
                 type="submit"
                 variant="contained"
                 color="secondary"

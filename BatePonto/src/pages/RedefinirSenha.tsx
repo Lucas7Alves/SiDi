@@ -43,9 +43,10 @@ function RedefinirSenha() {
       <img src={LogoSenha} alt="logo da sidi" className="logoSenha"/>
 
       <p className="fraseSenha">Utilize o formulário a seguir para redefinir sua senha.</p>
+
       <form onSubmit={handleSubmit}>
-        <fieldset>
-          <TextField
+        <fieldset className="formSenha">
+          <TextField style={{width: 500}}
             label="Digite sua nova senha"
             type="password"
             variant="outlined"
@@ -55,8 +56,8 @@ function RedefinirSenha() {
           />
         </fieldset>
 
-        <fieldset>
-          <TextField
+        <fieldset className="formSenha2">
+          <TextField style={{width: 500}}
             label="Repita sua nova senha"
             type="password"
             variant="outlined"
@@ -66,12 +67,14 @@ function RedefinirSenha() {
           />
         </fieldset>
 
+      <p></p>
         
-
-        <Button className="btnRedefinirSenha"
+        <fieldset className="btnEnviarSenha">
+        <Button style={{width: 150, height: 50, borderRadius: 50}}
         type="submit"
         variant="contained"
         color="secondary">REDEFINIR</Button>
+        </fieldset>
       </form>
       
     </div>
