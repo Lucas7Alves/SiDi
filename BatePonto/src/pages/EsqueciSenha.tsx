@@ -2,7 +2,7 @@ import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../scss/EsqueciSenha.sass";
-import LogoSenha from "../img/Logo-SiDi.png";
+import LogoSenha from "../img/SiDi_logo.svg";
 
     interface formData {
         email: string;
@@ -41,7 +41,7 @@ function EsqueciSenha() {
         <div>
             <img src={LogoSenha} alt="logo da sidi" className="logoSenha"/>
             
-            <p className="fraseSenha">Insira o seu email e enviaremos um link para você voltar a acessar a sua conta.</p>
+            <p className="fraseSenha">Insira o seu email e enviaremos um link para você voltar<br></br>a acessar a sua conta.</p>
 
     <form onSubmit={handleSubmit} >
             <fieldset className="emailCont" >
@@ -56,7 +56,7 @@ function EsqueciSenha() {
                 />
             </fieldset>
 
-        <p className="subTexto">Você receberá um e-mail com as instruções para criar uma nova senha para este usuário.</p>
+        <p className="subTexto">Você receberá um e-mail com as instruções<br></br>para criar uma nova senha para este usuário.</p>
 
             <fieldset className="btnEsquecisenha">
             <Button style={{width: 150, height: 50, borderRadius: 50}} 

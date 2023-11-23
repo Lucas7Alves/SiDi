@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
 import { useState } from "react";
-import LogoCad from "../img/Logo-SiDi.png";
+import LogoCad from "../img/SiDi_logo.svg";
 import DateForm from "../components/dateForm"
+import "../scss/home.sass";
 
 function Home() {
   const [message, setMessage] = useState("");
@@ -18,12 +19,13 @@ function Home() {
 
   return (
     <div>
-      <img src={LogoCad}/>
+      <img src={LogoCad} className="logoHome"/>
       <p>
         Bem-Vinda de volta, <strong>{ /*add uma variavel com o nome*/ }</strong> Sentimos sua falta.
       </p>
 
       <p>Entrada</p>
+      
       <DateForm/>
 
       <Button
