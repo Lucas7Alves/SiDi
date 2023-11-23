@@ -7,6 +7,7 @@ import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { useNavigate } from "react-router-dom";
 import TimeBar from "../components/TimeBar";
 import NavBar from "../components/NavBar";
+import FundoInicial from "../img/fundologinTela.svg";
 
 
 function Home() {
@@ -33,50 +34,60 @@ function Home() {
     setMsgCorrigida("Ponto Corrigido!");
   };
 
-
   return (
-    
-    <div>
+  
+    <div className="fundoTelaInicial">
       <NavBar/>
-      <img src={LogoCad} className="logoHome"/>
-      <p>
-        Bem-Vinda de volta, <strong>{ /*add uma variavel com o nome*/ }</strong> Sentimos sua falta.
-      </p>
-
-      <p>Entrada</p>
+        <div className="telaInicialContainer">
       
-      <DateForm/>
+      <div>
+        <p className="bemVindaHomeFrase">
+        Bem-vinda de volta, Maria!
+        </p>
 
-      <TimeBar/>
-      <Button
-        type="reset"
-        color="secondary"
-        variant="contained"
-        size="large"
-        onClick={mostrarMessage}
-      >
-        Bater Ponto
-      </Button>
-      {<p>{message}</p>}
+      <p className="entradaPonto">Entrada:</p>
+        <DateForm/>
+        <TimeBar/>
+          <Button
+            type="reset"
+            color="secondary"
+            variant="contained"
+            size="large"
+          onClick={mostrarMessage}
+          >Bater Ponto</Button>
+        {<p>{message}</p>}
 
 
-      <p>Corrigir Ponto</p>
+        <p className="saidaPonto">Saída:</p>
+        <DateForm/>
+        <TimeBar/>
+          <Button
+            type="reset"
+            color="secondary"
+            variant="contained"
+            size="large"
+          onClick={mostrarMessage}
+          >Bater Ponto</Button>
+        {<p>{message}</p>}
+
+
+      <p className="corrigirPonto">Corrigir ponto:</p>
+        <DateForm />  {}
+        <TimeBar />  {}
+          <Button 
+            type="reset"
+            color="secondary"
+            variant="contained"
+            size="large"
+            onClick={msgCorrigida}
+          >Corrigir ponto</Button>
+        {<p>{messageCorrigida}</p>}
+
+
       
-      <DateForm />  {/* Onde entra a data do ponto a ser corrigido */}
-      <DateForm />  {/* Para qual data o ponto vai ser corrigido   */}
-      <Button 
-        type="reset"
-        color="secondary"
-        variant="contained"
-        size="large"
-        onClick={msgCorrigida}
-      > Corrigir ponto
-      </Button>
-      {<p>{messageCorrigida}</p>}
-
-      <div className="map">{isLoaded ? (
+<div className="map">{isLoaded ? (
       <GoogleMap
-        mapContainerStyle={{width: 700, height: 500}}
+        mapContainerStyle={{width: 500, height: 300}}
         center={{
           lat: -8.087133654385111, 
           lng: -34.89179401238508
@@ -87,6 +98,8 @@ function Home() {
       </GoogleMap>
   ) : <></>
   }</div>
+    </div>
+    </div>
     </div>
 
 
