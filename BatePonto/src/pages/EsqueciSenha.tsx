@@ -55,18 +55,20 @@ function EsqueciSenha() {
                 onChange={handleInputChange}
                 />
             </fieldset>
+            
 
         <p className="subTexto">Você receberá um e-mail com as instruções<br></br>para criar uma nova senha para este usuário.</p>
-
-            <fieldset className="btnEsquecisenha">
-            <Button style={{width: 150, height: 50, borderRadius: 50}} 
-                type="submit"
-                variant="contained"
-                color="secondary"
-                className="btnEntrar"
+        
+        <fieldset className="btnEsquecisenha" >
+            <Button style={{width: 150, height: 50}}
+            type="submit"
+            variant="contained"
+            color="secondary"
             >ENVIAR</Button>
             </fieldset>    
+            
     </form>
+    
 
         
         </div>

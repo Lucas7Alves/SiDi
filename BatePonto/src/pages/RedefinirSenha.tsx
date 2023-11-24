@@ -74,7 +74,7 @@ function RedefinirSenha() {
 
         
         <fieldset className="btnEnviarSenha">
-        <Button style={{width: 150, height: 50, borderRadius: 50}}
+        <Button style={{width: 150, height: 50}}
         type="submit"
         variant="contained"
         color="secondary">REDEFINIR</Button>
