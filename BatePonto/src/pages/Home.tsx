@@ -73,12 +73,12 @@ function Home() {
 
       <div className="telaInicialContainer">
 
-        <p className="wellcomeFrase">Bem-vinda de volta, Maria!</p>
+        <p className="wellcomeFrase">⠀⠀Bem-vindo de volta, Bruno!</p>
 
         <div className="textosCima">
-          <p className="">Entrada:</p>
-          <p>Saída:</p>
-          <p>Corrigir ponto:</p>
+          <p className="entradaName">⠀⠀⠀⠀⠀⠀⠀⠀⠀Entrada:</p>
+          <p className="saidaName">⠀⠀⠀⠀⠀⠀Saída:⠀⠀⠀</p>
+          <p className="corrigirName">Corrigir ponto:</p>
         </div>
 
 
@@ -123,11 +123,11 @@ function Home() {
 
         </div>
 
-        <p className="textoMapa">Sua localização:</p>
+        <p className="textoMapa">Sua localização:⠀⠀⠀⠀</p>
 
         <div className="map">{isLoaded ? (
           <GoogleMap
-            mapContainerStyle={{ width: 500, height: 300 }}
+            mapContainerStyle={{ width: 800, height: 280 }}
             center={{
               lat: -8.087133654385111,
               lng: -34.89179401238508
