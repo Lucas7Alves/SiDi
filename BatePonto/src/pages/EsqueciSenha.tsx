@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../scss/EsqueciSenha.sass";
@@ -59,13 +59,10 @@ function EsqueciSenha() {
 
         <p className="subTexto">Você receberá um e-mail com as instruções<br></br>para criar uma nova senha para este usuário.</p>
         
-        <fieldset className="btnEsquecisenha" >
-            <Button style={{width: 150, height: 50}}
+            <button className="btnEsquecisenha"
             type="submit"
-            variant="contained"
-            color="secondary"
-            >ENVIAR</Button>
-            </fieldset>    
+            >ENVIAR</button>
+            
             
     </form>
     

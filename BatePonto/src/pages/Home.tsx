@@ -1,13 +1,10 @@
-import { Button } from "@mui/material";
 import { useState } from "react";
-import LogoCad from "../img/SiDi_logo.svg";
 import DateForm from "../components/dateForm"
 import "../scss/home.sass";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { useNavigate } from "react-router-dom";
 import TimeBar from "../components/TimeBar";
 import NavBar from "../components/NavBar";
-import FundoInicial from "../img/fundologinTela.svg";
 import axios from "axios";
 
 
@@ -94,13 +91,10 @@ function Home() {
             </form>
 
             <TimeBar />
-            <Button
+            <button className="btnHomeI"
               type="reset"
-              color="secondary"
-              variant="contained"
-              size="large"
               onClick={mostrarMessage}
-            >Bater Ponto</Button>
+            >Bater Ponto</button>
 
           </div>
 
@@ -108,13 +102,10 @@ function Home() {
           <div className="form2">
             <DateForm />
             <TimeBar />
-            <Button
+            <button className="btnHomeII"
               type="reset"
-              color="secondary"
-              variant="contained"
-              size="large"
               onClick={mostrarMessage}
-            >Bater Ponto</Button>
+            >Bater Ponto</button>
             {<p>{message}</p>}
           </div>
 
@@ -122,13 +113,11 @@ function Home() {
           <div className="form3">
             <DateForm />  { }
             <TimeBar />  { }
-            <Button
+            <button className="btnHomeIII"
               type="reset"
-              color="secondary"
-              variant="contained"
-              size="large"
+
               onClick={msgCorrigida}
-            >Corrigir ponto</Button>
+            >Corrigir ponto</button>
             {<p>{messageCorrigida}</p>}
           </div>
 

@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import {TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../scss/RedefinirSenha.sass";
@@ -73,12 +73,11 @@ function RedefinirSenha() {
         </fieldset>
 
         
-        <fieldset className="btnEnviarSenha">
-        <Button style={{width: 150, height: 50}}
+       
+        <button className="btnEnviarSenha" 
         type="submit"
-        variant="contained"
-        color="secondary">REDEFINIR</Button>
-        </fieldset>
+        >REDEFINIR</button>
+        
       </form>
       
     </div>

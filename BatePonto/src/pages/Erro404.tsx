@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import "../scss/erro404.sass";
 import { useNavigate } from "react-router-dom";
 
@@ -21,15 +20,12 @@ function Erro404() {
               A página que você procura pode ter sido removida, ter seu<br></br>
               nome alterado ou estar temporariamente indisponível.
             </p>
-            <form onSubmit={handleSubmit} className="btnVolta">
-              <Button
+            <form onSubmit={handleSubmit} >
+              <button className="btnVolta"
                 type="submit"
-                color="secondary"
-                variant="contained"
-                size="large"
               >
                 Página Inicial
-              </Button>
+              </button>
             </form>
           </div>
         </div>
