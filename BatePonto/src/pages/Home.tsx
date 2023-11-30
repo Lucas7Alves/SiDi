@@ -2,7 +2,6 @@ import { useState } from "react";
 import DateForm from "../components/dateForm"
 import "../scss/home.sass";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import { useNavigate } from "react-router-dom";
 import TimeBar from "../components/TimeBar";
 import NavBar from "../components/NavBar";
 import axios from "axios";
@@ -10,8 +9,6 @@ import axios from "axios";
 
 
 function Home() {
-
-  const navigate = useNavigate();
 
 
   const { isLoaded } = useJsApiLoader({
@@ -23,26 +20,16 @@ function Home() {
   const [messageCorrigida] = useState("");
 
   const mostrarMessage = () => {
-    alert("Ponto Batido!");
+    alert("Registro efetuado!");
+  };
+
+  const mostrarMessageSaida = () => {
+    alert("Resgistro de saida efetuado!");
   };
 
   const msgCorrigida = () => {
-    alert("Ponto Corrigido!");
+    alert("Registro Corrigido!");
   };
-
-  interface formData {
-    email: string;
-    date: string
-    entries: string
-    exits: string
-  }
-  
-  const [formData, setFormData] = useState<formData>({
-    email: "",
-    date: "",
-    entries: "",
-    exits: "",
-  });
 
 
   const handleEntrada = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,7 +41,6 @@ function Home() {
         
       );
       if (response.status === 200) {
-        console.log("aa")
         alert("Registro efetuado!");
       } else {
         alert("Erro no registro.");
@@ -73,7 +59,7 @@ function Home() {
 
       <div className="telaInicialContainer">
 
-        <p className="wellcomeFrase">⠀⠀Bem-vindo de volta, Bruno!</p>
+        <p className="wellcomeFrase">⠀⠀Bem-vindo de volta, Lucas!</p>
 
         <div className="textosCima">
           <p className="entradaName">⠀⠀⠀⠀⠀⠀⠀⠀⠀Entrada:</p>
@@ -104,7 +90,7 @@ function Home() {
             <TimeBar />
             <button className="btnHomeII"
               type="reset"
-              onClick={mostrarMessage}
+              onClick={mostrarMessageSaida}
             >Bater Ponto</button>
             {<p>{message}</p>}
           </div>

@@ -7,14 +7,14 @@ import axios from "axios";
 
 interface formData {
   email: string;
-  senha: string;
+  senhaCad: string;
 }
 
 function Login() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<formData>({
     email: "",
-    senha: "",
+    senhaCad: "",
   });
 
   const handleInputChange = (
@@ -29,10 +29,10 @@ function Login() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    handleLogin(e);
+    
 
-    if (formData.senha && formData.email) {
-      navigate("/Home");
+    if (formData.senhaCad && formData.email) {
+      handleLogin(e);
     } else {
       alert("Por favor, preencha todos os campos!");
     }
@@ -46,7 +46,10 @@ function Login() {
     try {
       const response = await axios.post(
         "http://127.0.0.1:5000/sidi_ponto/v1/login",
-        formData
+        {
+          email: formData.email,
+          password: formData.senhaCad
+        }
       );
       if (response.status === 200) {
         alert("Login efetuado!");
@@ -84,8 +87,8 @@ function Login() {
               label="Senha"
               type="password"
               variant="outlined"
-              name="senha"
-              value={formData.senha}
+              name="senhaCad"
+              value={formData.senhaCad}
               onChange={handleInputChange}
             />
           </fieldset>

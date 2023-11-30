@@ -14,6 +14,7 @@ interface formData {
 
 function Cadastro() {
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState<formData>({
     senhaCad: "",
     email: "",
@@ -35,7 +36,6 @@ function Cadastro() {
 
     if (formData.senhaCad && formData.email && formData.nome) {
       handleCadastro(e)
-      navigate("/login");
     } else {
       alert("Por favor, preencha todos os campos!");
     }
@@ -46,10 +46,15 @@ function Cadastro() {
   const handleCadastro = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    {/* na , dps da url um obj do msm jeito que o back pede */}
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/sidi_ponto/v1/cadastro",
-        formData
+        "http://127.0.0.1:5000/sidi_ponto/v1/cadastro", 
+        {
+          name: formData.nome, 
+          email: formData.email,
+          password: formData.senhaCad
+      }
       );
       if (response.status === 200) {
         alert("Cadastrado com sucesso!");

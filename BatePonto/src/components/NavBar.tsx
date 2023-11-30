@@ -141,7 +141,7 @@ function NavBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Logout">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Bruno" src="/static/images/avatar/2.jpg" /> {/* FOTO */}
+                <Avatar alt="Lucas" src="/static/images/avatar/2.jpg" /> {/* FOTO */}
               </IconButton>
             </Tooltip>
             <Menu

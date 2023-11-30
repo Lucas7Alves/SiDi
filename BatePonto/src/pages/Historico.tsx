@@ -1,7 +1,5 @@
 import NavBar from "../components/NavBar";
 import "../scss/Historico.sass";
-import TimeBar from "../components/TimeBar";
-import DateForm from "../components/dateForm";
 
 function Historico(){
 
