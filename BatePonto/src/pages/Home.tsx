@@ -1,14 +1,16 @@
 import { useState } from "react";
-import DateForm from "../components/dateForm"
-
 import "../scss/home.sass";
+import DateForm from "../components/dateForm";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import TimeBar from "../components/TimeBar";
 import NavBar from "../components/NavBar";
-import axios from "axios";
-import { DatePicker } from '@mui/x-date-pickers';
+import axios, { AxiosResponse } from "axios";
 
 
+interface ApiResponse {
+  message: string;
+  status_code: number;
+}
 
 function Home() {
 
@@ -18,7 +20,6 @@ function Home() {
     googleMapsApiKey: "AIzaSyCQI2HtvKCfvPZ8GXGI05UQzLM4ykDrU-U"
   })
 
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [message] = useState("");
   const [messageCorrigida] = useState("");
 
@@ -39,14 +40,20 @@ function Home() {
   const handleEntrada = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      { /* falta passar o form data */}
-      const response = await axios.post(
-        "http://127.0.0.1:5000/sidi_ponto/v1/criar"
-        
-        "http://127.0.0.1:5000/sidi_ponto/v1/criar" 
-      );
+    const currentDate = new Date(); 
+
+    const requestData = {
+      email: "example@email.com", 
+      date: currentDate.toISOString(),
       
+    };
+
+    try {
+      const response: AxiosResponse<ApiResponse> = await axios.post(
+        "http://127.0.0.1:5000/sidi_ponto/v1/criar",
+        requestData
+      );
+
       if (response.status === 200) {
         alert("Registro efetuado!");
       } else {
@@ -55,13 +62,8 @@ function Home() {
     } catch (error) {
       console.error("Erro ao realizar o registro:", error);
     }
-
-    
   };
 
-  const handleDateChange = (date: Date | null) => {
-    setSelectedDate(date);
-  }
 
   return (
 
@@ -87,7 +89,7 @@ function Home() {
 
             <div className="form1">
               <form onSubmit={handleEntrada}>
-                <DatePicker value={selectedDate} onChange={handleDateChange} />
+              <DateForm />
               </form>
 
               <TimeBar />
@@ -100,6 +102,9 @@ function Home() {
 
 
             <div className="form2">
+            <form onSubmit={handleEntrada}>
+              <DateForm />
+              </form>
 
               <TimeBar />
               <button className="btnHomeII"
@@ -111,6 +116,9 @@ function Home() {
 
 
             <div className="form3">
+            <form onSubmit={handleEntrada}>
+              <DateForm />
+              </form>
 
               <TimeBar />  { }
               <button className="btnHomeIII"
