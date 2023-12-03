@@ -5,6 +5,7 @@ import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import TimeBar from "../components/TimeBar";
 import NavBar from "../components/NavBar";
 import axios from "axios";
+import { DatePicker } from '@mui/x-date-pickers';
 
 
 
@@ -16,6 +17,7 @@ function Home() {
     googleMapsApiKey: "AIzaSyCQI2HtvKCfvPZ8GXGI05UQzLM4ykDrU-U"
   })
 
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [message] = useState("");
   const [messageCorrigida] = useState("");
 
@@ -30,6 +32,7 @@ function Home() {
   const msgCorrigida = () => {
     alert("Registro Corrigido!");
   };
+  
 
 
   const handleEntrada = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -48,7 +51,13 @@ function Home() {
     } catch (error) {
       console.error("Erro ao realizar o registro:", error);
     }
+
+    
   };
+
+  const handleDateChange = (date: Date | null) => {
+    setSelectedDate(date);
+  }
 
   return (
 
@@ -73,7 +82,7 @@ function Home() {
 
           <div className="form1">
             <form onSubmit={handleEntrada}>
-              <DateForm/>
+            <DatePicker value={selectedDate} onChange={handleDateChange} />
             </form>
 
             <TimeBar />
